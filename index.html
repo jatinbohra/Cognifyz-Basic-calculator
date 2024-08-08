@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task2 :Base Calculator</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="calculator.png">
+</head>
+<body>
+  
+    <div class="calculator">
+        <h3>Basic Calculator:</h3>
+        <input type="number" id="num1" placeholder="Enter first number">
+        <input type="number" id="num2" placeholder="Enter second number">
+        <button onclick="addNumbers()" id="colorButton">Add</button>
+        <div class="result" id="result"></div>
+    </div>
+    <script src="script.js"></script>
+    <script>
+    //Color change    
+    document.getElementById('colorButton').addEventListener('click', function() {
+    this.style.backgroundColor = this.style.backgroundColor === 'red' ? '#007BFF' : 'red';
+    });
+
+    // Function to get the current time and display a greeting
+    function displayGreeting() {
+    const now = new Date();
+    const hours = now.getHours();
+    let greeting;
+
+    if (hours < 12) {
+        greeting = "Good Morning!";
+    } else if (hours < 18) {
+        greeting = "Good Afternoon!";
+    } else {
+        greeting = "Good Evening!";
+    }
+
+    alert(greeting);
+    }
+
+    // Call the function to display the greeting
+    displayGreeting();
+
+    function addNumbers() {
+            // Get values from input fields
+            const num1 = parseFloat(document.getElementById('num1').value);
+            const num2 = parseFloat(document.getElementById('num2').value);
+
+            // Check if inputs are valid numbers
+            if (!isNaN(num1) && !isNaN(num2)) {
+                const sum = num1 + num2;
+                document.getElementById('result').textContent = `Result: ${sum}`;
+            } else {
+                document.getElementById('result').textContent = 'Please enter valid numbers.';
+            }
+        }
+    </script>
+</body>
+</html>
